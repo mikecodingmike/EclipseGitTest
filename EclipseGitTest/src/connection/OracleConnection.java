@@ -24,7 +24,7 @@ public class OracleConnection {
 	
 	public void open() throws BankAccountException {
 		try {
-			con = DriverManager.getConnection("jdbc:oracle:thin:localhost:1521:ORCL","DEMO","oracle");
+			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORCL","DEMO","oracle");
 			con.setAutoCommit(false);
 		}
 		catch(SQLException e) {
