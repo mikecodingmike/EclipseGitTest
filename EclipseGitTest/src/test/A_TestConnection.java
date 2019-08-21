@@ -18,7 +18,7 @@ public class A_TestConnection {
 			oracon.close();
 		}
 		catch(BankAccountException | SQLException e) {
-			System.err.println(e.getMessage());
+			System.out.println(e.getMessage());
 		}
 	}
 }

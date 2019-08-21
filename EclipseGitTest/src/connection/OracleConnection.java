@@ -17,18 +17,18 @@ public class OracleConnection {
 			Class.forName("oracle.jdbc.OracleDriver");
 		}
 		catch(ClassNotFoundException e) {
-			throw new BankAccountException("Could not find Database driver!");
+			throw new BankAccountException(e.getMessage());
 		}
 		
 	}
 	
 	public void open() throws BankAccountException {
 		try {
-			con = DriverManager.getConnection("jdbc:oracle:thin:localhost:1521:ORCL", "DEMO", "oracle");
+			con = DriverManager.getConnection("jdbc:oracle:thin:localhost:1521:ORCL","DEMO","oracle");
 			con.setAutoCommit(false);
 		}
 		catch(SQLException e) {
-			throw new BankAccountException("Could not open database connection!");
+			throw new BankAccountException("Could not open connection");
 		}
 	}
 	
@@ -38,7 +38,7 @@ public class OracleConnection {
 			con.close();
 		}
 		catch(SQLException e) {
-			throw new BankAccountException("Could not close the database connection");
+			throw new BankAccountException(e.getMessage());
 		}
 	}
 	
